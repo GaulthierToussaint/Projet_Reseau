@@ -13,5 +13,12 @@
     <groupId>Projet_Reseau</groupId>
     <artifactId>client</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>Projet_Reseau</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
