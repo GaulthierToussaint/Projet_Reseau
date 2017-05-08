@@ -30,14 +30,14 @@ public class Server {
                 for (i = 0; i < maxClientsCount; i++) {
                     if (threads[i] == null) {
                         (threads[i] = new clientThread(clientSocket, dataBase)).start();
-                        System.out.println(clientSocket.getInetAddress()+" is connected");
+                        System.out.println(clientSocket.getInetAddress()+" est connecté");
                         break;
                     }
                 }
                 if (i == maxClientsCount) {
                     PrintStream os = new PrintStream(clientSocket.getOutputStream());
-                    System.out.println("Too much connections, a client has been refused");
-                    os.println("Server too busy. Try later.");
+                    System.out.println("Il y a trop de connexions, un client a été refusé !");
+                    os.println("Le serveur est surchargé, réessayez plus tard.");
                     os.close();
                     clientSocket.close();
                 }
