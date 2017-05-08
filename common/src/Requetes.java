@@ -11,6 +11,24 @@ public enum Requetes {
         this.quantiteArg = quantiteArg;
     }
 
+    public static String getFailureString(String requete){
+        for (Requetes c : Requetes.values()) {
+            if (c.name().equals(requete.split(";")[0].toUpperCase())) {
+                return requete.split(";")[0]+";failure";
+            }
+        }
+        return "";
+    }
+
+    public static String getSuccessString(String requete){
+        for (Requetes c : Requetes.values()) {
+            if (c.name().equals(requete.split(";")[0].toUpperCase())) {
+                return requete.split(";")[0]+";success";
+            }
+        }
+        return "";
+    }
+
     public static boolean contains(String requete) {
         for (Requetes c : Requetes.values()) {
             if (c.name().equals(requete.split(";")[0].toUpperCase())) {

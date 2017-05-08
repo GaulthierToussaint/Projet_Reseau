@@ -19,8 +19,8 @@ public class Idee {
 
     }
 
-    public String getNom() {
-        return nom;
+    public String getDescri(){
+        return description;
     }
 
     public int getId(){

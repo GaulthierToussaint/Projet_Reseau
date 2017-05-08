@@ -66,7 +66,8 @@ class clientThread extends Thread {
             is = new DataInputStream(clientSocket.getInputStream());
             os = new PrintStream(clientSocket.getOutputStream());
 
-            os.println("Vous etes connecte au serveur ! \nPour vous deconnecter tapper \"exit\".");
+
+            os.println("Vous etes connecte au serveur ! \n Pour avoir une idee des requetes disponibles tapper \"help\" \n Pour vous deconnecter tapper \"exit\".");
 
             while (true) {
                 String line = is.readLine();

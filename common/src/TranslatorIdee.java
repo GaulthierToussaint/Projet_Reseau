@@ -8,11 +8,11 @@ public final class TranslatorIdee {
             return "Format de la requete invalide, essayer \"help\"";
         }
         if(Requetes.getAction(request).equals("list")){
-            return "list;success;" + dataBase.list();
+            return Requetes.getSuccessString(request) + ";" + dataBase.list();
         }
         if(Requetes.getAction(request).equals("add")){
             int id = dataBase.addIdee(request);
-            return "add;success;" + id;
+            return Requetes.getSuccessString(request) + ";" + id;
         }
         if(Requetes.getAction(request).equals("help")){
             return "Requetes possibles : \n 1.  list \n 2.  add;description_textuelle;technologies_envisagees;nom_etudiant;email";

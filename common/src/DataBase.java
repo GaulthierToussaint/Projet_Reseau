@@ -24,7 +24,7 @@ public class DataBase {
         if(tabIdee.size()==0)
             return res + "aucune_idee_dans_la_base";
         for(int i = 0 ; i < tabIdee.size() ; i++){
-            res += tabIdee.get(i).getId()+";"+tabIdee.get(i).getNom();
+            res += tabIdee.get(i).getId()+";"+tabIdee.get(i).getDescri();
             if(i!=tabIdee.size()-1){
                 res += ";";
             }
