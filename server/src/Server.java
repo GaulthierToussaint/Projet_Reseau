@@ -58,7 +58,6 @@ class clientThread extends Thread {
     public clientThread(Socket clientSocket, DataBase dataBase) {
         this.clientSocket = clientSocket;
         this.dataBase = dataBase;
-        this.dataBase.addIdee(new Idee("ok","bob","ca","va"));
     }
 
     public void run() {
@@ -67,17 +66,20 @@ class clientThread extends Thread {
             is = new DataInputStream(clientSocket.getInputStream());
             os = new PrintStream(clientSocket.getOutputStream());
 
-            os.println("Welcome on server ! \nTo leave enter \"quit\" in a new line.");
+            os.println("Vous etes connecte au serveur ! \nPour vous deconnecter tapper \"exit\".");
 
             while (true) {
                 String line = is.readLine();
-                if (line.startsWith("quit")) {
-                    System.out.println(clientSocket.getInetAddress()+" disconnected");
+                if (line.startsWith("exit")) {
+                    System.out.println(clientSocket.getInetAddress()+" deconnecte");
+                    String reponse = TranslatorIdee.execute(line, dataBase);
+                    os.println(reponse);
                     break;
                 }
                 else{
-                    System.out.println("Received from "+clientSocket.getInetAddress()+" "+line);
-                    os.println(dataBase.toString());
+                    System.out.println("Recu de "+clientSocket.getInetAddress()+" "+line);
+                    String reponse = TranslatorIdee.execute(line, dataBase);
+                    os.println(reponse);
                 }
             }
 
