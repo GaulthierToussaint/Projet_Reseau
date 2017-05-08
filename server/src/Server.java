@@ -10,10 +10,12 @@ public class Server {
     private static Socket clientSocket;
     private static final int maxClientsCount = 3;
     private static final clientThread[] threads = new clientThread[maxClientsCount];
+    private static DataBase dataBase;
 
     public static void main(String args[]) {
 
         int portNumber = 5555;
+        dataBase = new DataBase();
 
         try {
             serverSocket = new ServerSocket(portNumber);
@@ -27,7 +29,7 @@ public class Server {
                 int i;
                 for (i = 0; i < maxClientsCount; i++) {
                     if (threads[i] == null) {
-                        (threads[i] = new clientThread(clientSocket)).start();
+                        (threads[i] = new clientThread(clientSocket, dataBase)).start();
                         System.out.println(clientSocket.getInetAddress()+" is connected");
                         break;
                     }
@@ -51,9 +53,12 @@ class clientThread extends Thread {
     private DataInputStream is;
     private PrintStream os;
     private Socket clientSocket;
+    private DataBase dataBase;
 
-    public clientThread(Socket clientSocket) {
+    public clientThread(Socket clientSocket, DataBase dataBase) {
         this.clientSocket = clientSocket;
+        this.dataBase = dataBase;
+        this.dataBase.addIdee(new Idee("ok","bob","ca","va"));
     }
 
     public void run() {
@@ -72,7 +77,7 @@ class clientThread extends Thread {
                 }
                 else{
                     System.out.println("Received from "+clientSocket.getInetAddress()+" "+line);
-                    os.println("bien recu");
+                    os.println(dataBase.toString());
                 }
             }
 
