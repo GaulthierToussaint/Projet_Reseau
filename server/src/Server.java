@@ -6,9 +6,8 @@ import java.net.ServerSocket;
 
 public class Server {
 
-    private static ServerSocket serverSocket = null;
-    private static Socket clientSocket = null;
-
+    private static ServerSocket serverSocket;
+    private static Socket clientSocket;
     private static final int maxClientsCount = 3;
     private static final clientThread[] threads = new clientThread[maxClientsCount];
 
@@ -49,9 +48,9 @@ public class Server {
 
 class clientThread extends Thread {
 
-    private DataInputStream is = null;
-    private PrintStream os = null;
-    private Socket clientSocket = null;
+    private DataInputStream is;
+    private PrintStream os;
+    private Socket clientSocket;
 
     public clientThread(Socket clientSocket) {
         this.clientSocket = clientSocket;
@@ -63,7 +62,7 @@ class clientThread extends Thread {
             is = new DataInputStream(clientSocket.getInputStream());
             os = new PrintStream(clientSocket.getOutputStream());
 
-            os.println("Welcome ! \nTo leave enter \"quit\" in a new line.");
+            os.println("Welcome on server ! \nTo leave enter \"quit\" in a new line.");
 
             while (true) {
                 String line = is.readLine();
@@ -73,6 +72,7 @@ class clientThread extends Thread {
                 }
                 else{
                     System.out.println("Received from "+clientSocket.getInetAddress()+" "+line);
+                    os.println("bien recu");
                 }
             }
 

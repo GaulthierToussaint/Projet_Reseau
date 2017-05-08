@@ -11,7 +11,6 @@ public class Client implements Runnable {
     private static Socket clientSocket;
     private static PrintStream os;
     private static DataInputStream is;
-
     private static BufferedReader inputLine;
     private static boolean closed = false;
 
@@ -28,8 +27,7 @@ public class Client implements Runnable {
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + host);
         } catch (IOException e) {
-            System.err.println("Couldn't get I/O for the connection to the host "
-                    + host);
+            System.err.println("Couldn't get I/O for the connection to the host " + host);
         }
 
         if (clientSocket != null && os != null && is != null) {
