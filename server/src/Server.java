@@ -1,3 +1,6 @@
+import model.DataBase;
+import model.TranslatorIdee;
+
 import java.io.DataInputStream;
 import java.io.PrintStream;
 import java.io.IOException;

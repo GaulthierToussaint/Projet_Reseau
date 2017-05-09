@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Classe représentant une idée.
  */

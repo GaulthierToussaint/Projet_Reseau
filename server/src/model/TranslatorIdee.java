@@ -1,3 +1,5 @@
+package model;
+
 public final class TranslatorIdee {
 
     public static String execute(String request, DataBase dataBase){
@@ -15,7 +17,7 @@ public final class TranslatorIdee {
             return Requetes.getSuccessString(request) + ";" + "#" + id;
         }
         if(Requetes.getAction(request).equals("help")){
-            return "Requetes possibles : \n 1.  list \n 2.  add;description_textuelle;technologies_envisagees;nom_etudiant;email \n 3.  add;drone volant;bluetooth infrarouge;dupont;d@gmail.com \n 4.  exit";
+            return "model.Requetes possibles : \n 1.  list \n 2.  add;description_textuelle;technologies_envisagees;nom_etudiant;email \n 3.  add;drone volant;bluetooth infrarouge;dupont;d@gmail.com \n 4.  exit";
         }
         if(Requetes.getAction(request).equals("exit")){
             return "Vous etes maintenant deconnecte du serveur";
