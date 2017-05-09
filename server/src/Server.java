@@ -11,7 +11,7 @@ public class Server {
 
     private static ServerSocket serverSocket;
     private static Socket clientSocket;
-    private static final int maxClientsCount = 3;
+    private static final int maxClientsCount = 20;
     private static final clientThread[] threads = new clientThread[maxClientsCount];
     private static DataBase dataBase;
 

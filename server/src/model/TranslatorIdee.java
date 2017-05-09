@@ -4,7 +4,7 @@ public final class TranslatorIdee {
 
     public static String execute(String request, DataBase dataBase){
         if(!Requetes.contains(request) ){
-            return "Requete inconnue, essayer \"help\"";
+            return "fr.unice.polytech.si3.reseaux.prog_reseaux.protocol.Requete inconnue, essayer \"help\"";
         }
         if(!Requetes.isValid(request)){
             return "Format de la requete invalide, essayer \"help\"";
@@ -22,6 +22,6 @@ public final class TranslatorIdee {
         if(Requetes.getAction(request).equals("exit")){
             return "Vous etes maintenant deconnecte du serveur";
         }
-        return "Requete inconnue, essayer \"help\"";
+        return "fr.unice.polytech.si3.reseaux.prog_reseaux.protocol.Requete inconnue, essayer \"help\"";
     }
 }
