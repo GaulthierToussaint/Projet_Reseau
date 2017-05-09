@@ -23,8 +23,8 @@ public class Idee {
         return description;
     }
 
-    public int getId(){
-        return id;
+    public String getId(){
+        return "#" + id;
     }
 
     @Override
